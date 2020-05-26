@@ -13,6 +13,11 @@ import webbrowser
 from base64 import b64encode
 import pyperclip
 
+from tkinter import filedialog
+from tkinter import *
+root = Tk()
+root.withdraw()
+
 keyboard = Controller()
 
 appdata = os.getenv('APPDATA')
@@ -125,7 +130,24 @@ def imgSearch(sysTrayIcon):
     response = requests.post('http://www.google.co.uk/searchbyimage/upload', files=multipart, allow_redirects=False)
     fetchUrl = response.headers['Location']
     webbrowser.open(fetchUrl)
-
+    
+def imgSave(sysTrayIcon):
+    clearClip()
+    time.sleep(0.2)
+    image = ImageGrab.grabclipboard()
+    runSS(None)
+    print("Loading: ", end="")
+    while image is None:
+        print(".", end="")
+        image = ImageGrab.grabclipboard()
+        time.sleep(0.1)
+    print("\nDone")
+    image.save("image.png")
+    files = [('PNG Image', '*.png')] 
+    file = filedialog.asksaveasfile(filetypes = files, defaultextension = files) 
+    image.save(file.name)
+    
+    
 menu_options = (
     ('Screenshot', None, runSS),
     ('--------------', None, hello),
@@ -134,6 +156,7 @@ menu_options = (
     ('--------------', None, hello),
     ('Imgur Uplaod', None, imgUpload),
     ('Image Search', None, imgSearch),
+    ('Image Save', None, imgSave),
     ('--------------', None, hello))
 
 print("\n"*60)
