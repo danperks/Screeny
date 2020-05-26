@@ -1,6 +1,7 @@
 import gui
 import itertools, glob
 import os
+import PIL
 from PIL import ImageGrab, Image
 import requests
 import json
@@ -55,17 +56,17 @@ def runSS(sysTrayIcon):
 def ocrSave(sysTrayIcon):
     clearClip()
     time.sleep(0.2)
-    image = ImageGrab.grabclipboard()
+    image = PIL.ImageGrab.grabclipboard()
     runSS(None)
     print("Loading: ", end="")
     while image is None:
         print(".", end="")
-        image = ImageGrab.grabclipboard()
+        image = PIL.ImageGrab.grabclipboard()
         time.sleep(0.1)
     print("\nDone")
     print("\nText:")
     image.save("image.png")
-    var = pytesseract.image_to_string(Image.open('image.png'))
+    var = pytesseract.image_to_string(PIL.Image.open('image.png'))
     print(var)
     pyperclip.copy(var)
     print("\n\n")
@@ -73,17 +74,17 @@ def ocrSave(sysTrayIcon):
 def ocrSearch(sysTrayIcon):
     clearClip()
     time.sleep(0.2)
-    image = ImageGrab.grabclipboard()
+    image = PIL.ImageGrab.grabclipboard()
     runSS(None)
     print("Loading: ", end="")
     while image is None:
         print(".", end="")
-        image = ImageGrab.grabclipboard()
+        image = PIL.ImageGrab.grabclipboard()
         time.sleep(0.1)
     print("\nDone")
     print("\nText:")
     image.save("image.png")
-    var = pytesseract.image_to_string(Image.open('image.png'))
+    var = pytesseract.image_to_string(PIL.Image.open('image.png'))
     print(var)
     print("\n\n")
     query = var.replace(" ", "+")
@@ -92,12 +93,12 @@ def ocrSearch(sysTrayIcon):
 def imgUpload(sysTrayIcon):
     clearClip()
     time.sleep(0.2)
-    image = ImageGrab.grabclipboard()
+    image = PIL.ImageGrab.grabclipboard()
     runSS(None)
     print("Loading: ", end="")
     while image is None:
         print(".", end="")
-        image = ImageGrab.grabclipboard()
+        image = PIL.ImageGrab.grabclipboard()
         time.sleep(0.1)
     print("\nDone")
     image.save("image.png")
@@ -116,12 +117,12 @@ def imgUpload(sysTrayIcon):
 def imgSearch(sysTrayIcon):
     clearClip()
     time.sleep(0.2)
-    image = ImageGrab.grabclipboard()
+    image = PIL.ImageGrab.grabclipboard()
     runSS(None)
     print("Loading: ", end="")
     while image is None:
         print(".", end="")
-        image = ImageGrab.grabclipboard()
+        image = PIL.ImageGrab.grabclipboard()
         time.sleep(0.1)
     print("\nDone")
     image.save("image.png")
@@ -134,12 +135,12 @@ def imgSearch(sysTrayIcon):
 def imgSave(sysTrayIcon):
     clearClip()
     time.sleep(0.2)
-    image = ImageGrab.grabclipboard()
+    image = PIL.ImageGrab.grabclipboard()
     runSS(None)
     print("Loading: ", end="")
     while image is None:
         print(".", end="")
-        image = ImageGrab.grabclipboard()
+        image = PIL.ImageGrab.grabclipboard()
         time.sleep(0.1)
     print("\nDone")
     image.save("image.png")
