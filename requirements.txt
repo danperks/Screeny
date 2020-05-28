@@ -1,6 +1,6 @@
-pywin32
-pillow
-pynput
-pytesseract
-pyperclip
-requests
+keybind==0.3.0
+Pillow==7.1.2
+PyInstaller==3.6
+pynput==1.6.8
+pyperclip==1.8.0
+pytesseract==0.3.4
