@@ -1,4 +1,5 @@
 import gui
+
 import itertools, glob
 import os
 import PIL
@@ -13,7 +14,9 @@ import time
 import webbrowser
 from base64 import b64encode
 import pyperclip
-from keybind import KeyBinder
+
+from system_hotkey import SystemHotkey
+hk = SystemHotkey()
 
 from tkinter import filedialog
 from tkinter import *
@@ -93,6 +96,7 @@ def ocrSearch(sysTrayIcon):
     print("\n\n")
     query = var.replace(" ", "+")
     webbrowser.open("http://www.google.co.uk/search?q="+query)
+    return 0
     
 # -------- IMAGE TOOLS
     
@@ -142,8 +146,7 @@ menu_options = (
 print("\n"*60)
 clearClip()
 
-KeyBinder.activate({
-    'Shift-R': ocrSearch
-}, run_thread=True)
+hk.register(['shift', 'h'], callback=lambda event: ocrSearch(None))
+print("Ready")
 
 gui.SysTrayIcon(next(icons), hover_text, menu_options, on_quit=close, default_menu_index=1)
