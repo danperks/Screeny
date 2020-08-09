@@ -12,6 +12,8 @@ A taskbar screenshot tool built in Python, with OCR and Imgur Upload
 ## Usage
 
 To use the program regularly, just run Screeny.py and everything should work fine.
+You should get an icon in your taskbar, which you can right click to access all the features.
+At some point I'll update this with screenshots and might make a better version in C++ or something more efficient.
 Let me know with a Issue if you find an issue.
 
 
