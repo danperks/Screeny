@@ -4,3 +4,6 @@ pynput==1.6.8
 pyperclip==1.8.0
 pytesseract==0.3.4
 system_hotkey==1.0.3
+requests==2.23.0
+pywin32==227
+pyautogui==0.9.52
