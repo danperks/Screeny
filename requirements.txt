@@ -1,5 +1,5 @@
 keybind==0.3.0
-Pillow==7.1.2
+Pillow==8.1.1
 pynput==1.6.8
 pyperclip==1.8.0
 pytesseract==0.3.4
